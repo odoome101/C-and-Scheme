@@ -1,0 +1,16 @@
+name: Assignment automated tests
+
+on: [push]
+
+jobs:
+  our-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Guile
+        run: |
+          sudo apt-get -qq install guile-2.2
+      - name: Run Tests
+        run: |
+          ./scheme .unit-tester.scm
+          
